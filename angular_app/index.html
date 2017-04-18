@@ -1,0 +1,90 @@
+<html ng-app="MyApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+        <title>App prueba</title>
+
+        <link href="http://cdn.foundation5.zurb.com/foundation.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+
+    </head>
+    <body ng-controller="MainController">
+        <nav class="tab-bar">
+            <div class="left-small">
+                <a role="button" aria-expanded="false" aria-controls="idOfLeftMenu" class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </div>
+            <section class="middle tab-bar-section">
+                <h1 class="title">Cuenta</h1>
+            </section>
+            <div class="right-small">
+                <a role="button" aria-expanded="false" aria-controls="idOfRightMenu" class="right-off-canvas-toggle menu-icon" ><span></span></a>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="small-1 small-centered columns"> <h1>{{contador}}</h1></div>
+        </div>
+        <ul class="stack button-group round">
+            <li> <a href="#" class="button" ng-click="sumar(1)">+1</a></li>
+        </ul>
+        <br>
+        <ul class="button-group round even-2">
+            <li><a href="#" class="button" ng-click="addRow()">Reset</a></li>
+            <li><a href="#" class="button" ng-click="restar(1)">-1</a></li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th width="2000">Historial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rowContent in rows">
+                    <td>{{rowContent}}</td>
+                </tr>
+            </tbody>
+        </table>   
+        <ul class="stack button-group round">
+            <li> <a href="#" class="button"  ng-click="deleteRow(1)">Clear</a></li>
+        </ul>
+    </body>
+</html>
+
+<script>
+
+    angular.module('MyApp', [])
+            .controller('MainController', ['$scope', function ($scope) {
+
+                    $scope.rows = [];
+
+                    $scope.counter = 1;
+
+// Añadir número de cuenta y fecha
+
+                    $scope.addRow = function () {
+                        $scope.today = new Date();
+                        $scope.rows.push($scope.today + "-------------->Cuenta: " + $scope.contador);
+                        $scope.counter++;
+// Resetea contador a 0
+                        $scope.contador = 0;
+                    }
+
+
+// Eliminar histórico
+
+                    $scope.deleteRow = function (row) {
+                        $scope.rows.splice($scope.rows);
+                    };
+// Función de sumar y restar
+                    $scope.contador = 0;
+                    $scope.sumar = function (cantidad) {
+                        $scope.contador += cantidad;
+                    };
+                    $scope.restar = function (cantidad) {
+                        $scope.contador -= cantidad;
+                    };
+                }]);
+</script>
+
+
+
