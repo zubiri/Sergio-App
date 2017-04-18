@@ -3,6 +3,8 @@
 Este repositorio contiene un ejemplo de app para contabilizar cosas.
 Dicha aplicación se ha programado con ÁngularJs y para el estilo de la app se ha ulilizando foundation5.
 
+La aplicación entera se encuentra en el archivo index.html.
+
 Contiene funciones de:
 
 -Sumas de números
