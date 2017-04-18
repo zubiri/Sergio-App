@@ -9,7 +9,7 @@ Contiene funciones de:
 -Incremento de filas en función de "onclicks"
 -Borrado de dichas fialas.
 
-Una aplicación App Engine "Cuenta" trivial destinada a utilizarse como punto de partida para tu propio código.
+Una aplicación App trivial destinada a utilizarse como punto de partida para tu propio código.
 
 En esta app no se ha utilizado localstorate, puesto que para el ejercicio propuesto es irrelevante la persistencia del histórico.
 Nota: La herramienta Sergio-App es una app basada en la App Cuenta de Antonio Acevedo (https://marketplace.firefox.com/app/cuenta-1/?src=search).
